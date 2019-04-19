@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+            width: 500px;
+            height: 300px;
+
+        }
+        #banner{
+            width: 550px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #banner ul{
+            width: 3000px;
+            margin-left: 0;
+            transition: margin-left 2s;
+        }
+        #banner li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul id="ul">
+            <li><a href=""><img src="../img/images01.jpg" alt=""></a></li>
+            <li><a href=""><img src="../img/images02.jpg" alt=""></a></li>
+            <li><a href=""><img src="../img/images03.jpg" alt=""></a></li>
+            <li><a href=""><img src="../img/images06.jpg" alt=""></a></li>
+            <li><a href=""><img src="../img/images05.jpg" alt=""></a></li>
+            <li><a href=""><img src="../img/images01.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <script>
+        const ul = document.getElementById("ul");
+        function autoPlay(){
+            let left = parseFloat(getComputedStyle(ul,false)["marginLeft"]);
+            setInterval(function(){
+                left-=500;
+                if(left ===-2500) {
+                    left = 0;
+                }  
+                ul.style.marginLeft = left+"px";             
+            },3000)            
+        }
+        autoPlay();
+    </script>
+</body>
+</html>
